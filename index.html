@@ -7,18 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --purple-50: #F3EEFE;
-    --purple-100: #DDD0F9;
-    --purple-200: #C4AEF3;
+    --purple-50: #1e0f35;
+    --purple-100: #2d1850;
+    --purple-200: #4a2880;
     --purple-400: #9B6EE8;
-    --purple-600: #7B3FD4;
-    --purple-800: #5A2299;
-    --purple-900: #35135C;
-    --white: #ffffff;
-    --off-white: #f9f8ff;
-    --gray-light: #f4f3fa;
-    --text-main: #1a1730;
-    --text-muted: #6b6484;
+    --purple-600: #9B55F0;
+    --purple-800: #b87ef5;
+    --purple-900: #d4aaff;
+    --white: #0a0a0f;
+    --off-white: #0f0f18;
+    --gray-light: #1a1a28;
+    --text-main: #f0eeff;
+    --text-muted: #9990b8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 6%;
-    background: rgba(255,255,255,0.85);
+    background: rgba(10,10,15,0.88);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(83,74,183,0.08);
     transition: box-shadow 0.3s;
@@ -91,7 +91,7 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--purple-50) 0%, transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(155,85,240,0.15) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-blob {
@@ -247,8 +247,7 @@
     margin-top: 3rem;
   }
   .service-card {
-    background: white;
-    border: 1px solid rgba(83,74,183,0.08);
+    background: #0f0f18;
     border-radius: 20px;
     padding: 2rem;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -272,7 +271,7 @@
 
   /* STATS */
   #stats {
-    background: var(--purple-900);
+    background: #06060a;
     color: white;
     padding: 5rem 6%;
   }
@@ -305,7 +304,7 @@
   .stat-label { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; }
 
   /* TESTIMONIALS */
-  #testimonios { background: white; }
+  #testimonios { background: var(--white); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -313,8 +312,8 @@
     margin-top: 3rem;
   }
   .testimonial-card {
-    background: var(--off-white);
-    border: 1px solid rgba(83,74,183,0.08);
+    background: #0f0f18;
+    border: 1px solid rgba(155,110,232,0.12);
     border-radius: 20px;
     padding: 2rem;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -371,8 +370,7 @@
   }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
   .modal {
-    background: white;
-    border-radius: 24px;
+    background: #0f0f18;
     padding: 2.5rem;
     width: 100%;
     max-width: 480px;
@@ -422,8 +420,7 @@
     font-family: 'Nunito Sans', sans-serif;
     font-size: 0.95rem;
     color: var(--text-main);
-    background: white;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #1a1a28;
     outline: none;
   }
   .form-group input:focus,
@@ -477,7 +474,7 @@
 
   /* FOOTER */
   footer {
-    background: var(--purple-900);
+    background: #06060a;
     color: rgba(255,255,255,0.6);
     padding: 2.5rem 6%;
     display: flex;
@@ -501,9 +498,8 @@
     display: none;
     position: fixed;
     top: 64px; left: 0; right: 0;
-    background: white;
-    padding: 1.5rem 6%;
-    border-bottom: 1px solid rgba(83,74,183,0.08);
+    background: #0a0a0f;
+    padding: 1.5rem 6%; 1px solid rgba(83,74,183,0.08);
     z-index: 99;
     flex-direction: column;
     gap: 1.2rem;
@@ -708,7 +704,7 @@
 </section>
 
 <!-- REDES -->
-<section id="redes" style="padding: 3rem 6%;">
+<section id="redes" style="padding: 3rem 6%; background: var(--white);">
   <div class="social-links">
     <a href="https://instagram.com/JanoraMx" target="_blank" class="social-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
