@@ -303,6 +303,125 @@
   }
   .stat-label { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; }
 
+  /* PACKAGES */
+  #paquetes { background: var(--off-white); }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  .package-card {
+    background: #0f0f18;
+    border: 1px solid rgba(155,110,232,0.1);
+    border-radius: 22px;
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .package-card.visible { animation: fadeUp 0.6s forwards; }
+  .package-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(83,74,183,0.14); border-color: rgba(155,110,232,0.3); }
+  .package-card.featured {
+    border-color: var(--purple-600);
+    box-shadow: 0 0 0 1px var(--purple-600), 0 16px 48px rgba(155,85,240,0.18);
+  }
+  .package-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--purple-600);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .package-name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+  }
+  .package-price {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--purple-600);
+    line-height: 1;
+    margin: 0.8rem 0 0.2rem;
+  }
+  .package-price span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .package-price-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.4rem;
+  }
+  .package-divider {
+    height: 1px;
+    background: rgba(155,110,232,0.1);
+    margin: 1.2rem 0;
+  }
+  .package-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.8rem;
+  }
+  .package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .package-features li .feat-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    stroke: var(--purple-400);
+  }
+  .btn-package {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: transparent;
+    color: var(--purple-600);
+    border: 1.5px solid var(--purple-600);
+    padding: 0.75rem 1rem;
+    border-radius: 100px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-package:hover { background: var(--purple-600); color: white; transform: translateY(-1px); }
+  .btn-package.solid { background: var(--purple-600); color: white; }
+  .btn-package.solid:hover { background: var(--purple-800); }
+  .package-quote-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+
   /* TESTIMONIALS */
   #testimonios { background: var(--white); }
   .testimonials-grid {
@@ -374,6 +493,7 @@
     padding: 2.5rem;
     width: 100%;
     max-width: 480px;
+    border-radius: 24px;
     transform: translateY(30px) scale(0.97);
     transition: transform 0.35s cubic-bezier(0.34,1.3,0.64,1);
     box-shadow: 0 24px 80px rgba(26,23,48,0.18);
@@ -522,6 +642,7 @@
     section { padding: 4rem 5%; }
     #hero { padding: 7rem 5% 4rem; }
     footer { flex-direction: column; text-align: center; }
+    .packages-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -532,6 +653,7 @@
   <div class="nav-logo">Janora</div>
   <div class="nav-links">
     <a href="#servicios">Servicios</a>
+    <a href="#paquetes">Paquetes</a>
     <a href="#testimonios">Clientes</a>
     <a href="#contacto">Contacto</a>
     <a href="#contacto" class="nav-cta">Empieza tu proyecto</a>
@@ -543,6 +665,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#servicios" onclick="closeMenu()">Servicios</a>
+  <a href="#paquetes" onclick="closeMenu()">Paquetes</a>
   <a href="#testimonios" onclick="closeMenu()">Clientes</a>
   <a href="#contacto" onclick="closeMenu()">Contacto</a>
   <a href="#contacto" onclick="closeMenu()" style="color:var(--purple-600); font-weight:600;">Empieza tu proyecto</a>
@@ -644,6 +767,173 @@
         <span class="stat-label">% compromiso con el cliente</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PAQUETES -->
+<section id="paquetes">
+  <span class="section-label">Planes y precios</span>
+  <h2 class="section-title">Elige el paquete <em>ideal para ti</em></h2>
+  <div class="packages-grid">
+
+    <!-- Paquete 1 -->
+    <div class="package-card">
+      <div class="package-name">Esencial</div>
+      <div class="package-price">$1,000 <span>MXN</span></div>
+      <div class="package-price-note">Pago único · Entrega en 5–7 días hábiles</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Sitio web de hasta 5 secciones informativas
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Diseño responsivo adaptado a móvil y escritorio
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Personalización de colores, tipografía e identidad de marca
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Formulario de contacto funcional
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Integración de redes sociales
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Optimización básica de velocidad de carga (SEO on-page)
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          1 ronda de ajustes sin costo adicional
+        </li>
+      </ul>
+      <button class="btn-package" onclick="openModal()">Solicitar paquete →</button>
+    </div>
+
+    <!-- Paquete 2 -->
+    <div class="package-card featured">
+      <div class="package-badge">Más popular</div>
+      <div class="package-name">Profesional</div>
+      <div class="package-price">$2,000 <span>MXN</span></div>
+      <div class="package-price-note">Pago único · Entrega en 7–10 días hábiles</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Todo lo incluido en el paquete Esencial
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Diseño visual de alto impacto con animaciones y transiciones
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Automatización de mensajes vía WhatsApp Business API
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Respuestas automáticas a consultas frecuentes
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Hasta 8 secciones personalizadas
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Panel de administración básico para actualizar contenido
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          2 rondas de ajustes sin costo adicional
+        </li>
+      </ul>
+      <button class="btn-package solid" onclick="openModal()">Solicitar paquete →</button>
+    </div>
+
+    <!-- Paquete 3 -->
+    <div class="package-card">
+      <div class="package-name">Avanzado</div>
+      <div class="package-price">$3,000 <span>MXN</span></div>
+      <div class="package-price-note">Pago único · Entrega en 10–15 días hábiles</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Todo lo incluido en el paquete Profesional
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Dominio propio personalizado (registro incluido primer año)
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Certificado SSL para navegación segura (HTTPS)
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Hosting administrado con respaldos automáticos
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Integración con Google Analytics y métricas de rendimiento
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Optimización SEO avanzada para posicionamiento en Google
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Soporte técnico prioritario por 30 días post-entrega
+        </li>
+      </ul>
+      <button class="btn-package" onclick="openModal()">Solicitar paquete →</button>
+    </div>
+
+    <!-- Paquete 4 -->
+    <div class="package-card">
+      <div class="package-name">Empresarial</div>
+      <div class="package-price" style="font-size:1.6rem; padding-top:0.3rem;">Cotización<br><span style="font-size:0.9rem;">a medida</span></div>
+      <div class="package-price-note">Plazos y condiciones según alcance del proyecto</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Todo lo incluido en el paquete Avanzado
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Desarrollo 100% personalizado desde cero, sin plantillas
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Arquitectura escalable orientada al crecimiento del negocio
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Integraciones con sistemas de terceros (CRM, ERP, pagos, etc.)
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Funcionalidades avanzadas definidas en propuesta técnica
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Acompañamiento estratégico durante todo el desarrollo
+        </li>
+        <li>
+          <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Soporte técnico extendido y mantenimiento continuo
+        </li>
+      </ul>
+      <button class="btn-package" onclick="openModal()">Solicitar cotización →</button>
+      <p class="package-quote-label">Nos pondremos en contacto para elaborar una propuesta a la medida de tu negocio.</p>
+    </div>
+
   </div>
 </section>
 
@@ -829,7 +1119,7 @@
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll('.service-card, .testimonial-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.service-card, .testimonial-card, .package-card').forEach(el => observer.observe(el));
 
   // Counter animation
   function animateCounters() {
